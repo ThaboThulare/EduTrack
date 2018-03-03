@@ -12,5 +12,8 @@
 --example
 
 insert into subject (subject_name) values('Maths');
+insert into subject (subject_name) values('English');
 
 insert into mark (subject_id,marks)  values(1, 58.7);
+insert into mark (subject_id,marks)  values(1, 78.7);
+insert into mark (subject_id,marks)  values(2, 48.7);

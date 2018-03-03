@@ -7,7 +7,7 @@ package za.co.edutrack.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import za.co.edutrack.Mark;
+import za.co.edutrack.domain.Mark;
 
 /**
  *

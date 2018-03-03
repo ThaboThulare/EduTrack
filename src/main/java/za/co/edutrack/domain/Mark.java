@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package za.co.edutrack;
+package za.co.edutrack.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,7 +33,7 @@ public class Mark {
     @JoinColumn(name = "subject_id")
     Subject subject;
     
-    @Column(name = "mark")
+    @Column(name = "marks")
     private double mark;
 
     public Long getId() {
