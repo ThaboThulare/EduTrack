@@ -3,36 +3,52 @@ package za.co.edutrack.mapper;
 import java.util.ArrayList;
 import java.util.List;
 import za.co.edutrack.domain.Mark;
+import za.co.edutrack.domain.Student;
 import za.co.edutrack.domain.Subject;
 import za.co.edutrack.model.MarkQueryModel;
+import za.co.edutrack.model.StudentQueryModel;
 import za.co.edutrack.model.SubjectQueryModel;
 
 /**
- * <p>Title: Mapper</p>
+ * <p>
+ * Title: Mapper</p>
  * <p/>
- * <p>Description: </p>
+ * <p>
+ * Description: </p>
  * <p/>
- * <p>Copyright: Copyright (c) 2018</p>
+ * <p>
+ * Copyright: Copyright (c) 2018</p>
  * <p/>
- * <p>Company: Discovery</p>
+ * <p>
+ * Company: Discovery</p>
  *
  * @author Thabo Thulare
  * @version 1.0
  */
-public class Mapper
-{
+public class Mapper {
 
-  public static SubjectQueryModel toSubjectQueryModel(Subject from)
-  {
-    SubjectQueryModel subject = new SubjectQueryModel();
-    
-    subject.setId(from.getId());
-    subject.setSubjectName(from.getSubjectName());
-    
-    return subject;
-  }
-  
-  public static MarkQueryModel toMarkQueryModel(Mark from)
+    public static StudentQueryModel toStudentQueryModel(Student from) {
+        StudentQueryModel student = new StudentQueryModel();
+
+        student.setStudentId(from.getId());
+        student.setFirstname(from.getFirstname());
+        student.setLastname(from.getLastname());
+        student.setUsername(from.getUsername());
+        student.setPassword(from.getPassword());
+        
+        return student;
+    }
+
+    public static SubjectQueryModel toSubjectQueryModel(Subject from) {
+        SubjectQueryModel subject = new SubjectQueryModel();
+
+        subject.setId(from.getId());
+        subject.setSubjectName(from.getSubjectName());
+
+        return subject;
+    }
+
+    public static MarkQueryModel toMarkQueryModel(Mark from)
   {
     MarkQueryModel mark = new MarkQueryModel();
     mark.setId(from.getId());
@@ -43,23 +59,31 @@ public class Mapper
     
     return mark;  
   }
-  
-      public static List<SubjectQueryModel> toSubjectQueryModel(List<Subject> fromList) {
+
+    public static List<SubjectQueryModel> toSubjectQueryModel(List<Subject> fromList) {
         List<SubjectQueryModel> subjectList = new ArrayList<SubjectQueryModel>();
         for (Subject subject : fromList) {
             subjectList.add(toSubjectQueryModel(subject));
         }
         return subjectList;
     }
-      
-      public static List<MarkQueryModel> toMarkQueryModel(List<Mark> fromList)
-      {
-          List<MarkQueryModel> markList = new ArrayList<MarkQueryModel>();
-          for(Mark mark: fromList)
-          {
-              markList.add(toMarkQueryModel(mark));
-          }
-          
-          return markList;
-      }
+
+    public static List<MarkQueryModel> toMarkQueryModel(List<Mark> fromList) {
+        List<MarkQueryModel> markList = new ArrayList<MarkQueryModel>();
+        for (Mark mark : fromList) {
+            markList.add(toMarkQueryModel(mark));
+        }
+
+        return markList;
+    }
+
+    public static List<StudentQueryModel> toStudentQueryModel(List<Student> fromList) {
+        List<StudentQueryModel> studentList = new ArrayList<StudentQueryModel>();
+        for (Student student : fromList) {
+            studentList.add(toStudentQueryModel(student));
+        }
+
+        return studentList;
+    }
+
 }

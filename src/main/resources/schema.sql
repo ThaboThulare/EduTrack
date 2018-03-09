@@ -22,3 +22,20 @@ create table mark(
       marks double ,
       constraint subject_id_fk foreign key( subject_id) references subject (id)  
 );
+
+create table student( 
+         student_id integer auto_increment not null primary key, 
+	 firstname varchar(45) not null,   
+	 lastname varchar(45) not null, 
+	 username varchar(45) not null, 
+         password varchar(45) not null, 
+         cellphone integer(10)
+);
+
+create table grade( 
+        grade_id integer auto_increment not null primary key, 
+	grade_year varchar(45) not null, 
+	grade varchar(45) not null,
+        student_id integer not null,
+        constraint grade_id_fk foreign key(student_id) references student(student_id) 
+);

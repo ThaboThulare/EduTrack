@@ -24,5 +24,18 @@
 			</sequence>
 		</complexType>
 	</element>
+        
+        <element name="StudentQueryModel">
+            <complexType>
+                <sequence>
+                    <element name="student_id" type="long"></element>
+                    <element name="firstname" type="string"></element>
+                    <element name="lastname" type="string"></element>
+                    <element name="username" type="string"></element>
+                    <element name="password" type="string"></element>
+                    <element name="cellphone" type="long"></element>
+                </sequence>
+            </complexType>
+        </element>
 
 </schema>
