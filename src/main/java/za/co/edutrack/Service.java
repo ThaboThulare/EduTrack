@@ -14,16 +14,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import za.co.edutrack.domain.Grade;
 import za.co.edutrack.domain.Mark;
+import za.co.edutrack.domain.School;
 import za.co.edutrack.domain.Student;
 import za.co.edutrack.domain.Subject;
+import za.co.edutrack.mapper.Mapper;
+import static za.co.edutrack.mapper.Mapper.toGradeQueryModels;
 import static za.co.edutrack.mapper.Mapper.toMarkQueryModel;
+import static za.co.edutrack.mapper.Mapper.toSchoolQueryModel;
 import static za.co.edutrack.mapper.Mapper.toStudentQueryModel;
 import static za.co.edutrack.mapper.Mapper.toSubjectQueryModel;
+import za.co.edutrack.model.GradeQueryModel;
 import za.co.edutrack.model.MarkQueryModel;
+import za.co.edutrack.model.SchoolQueryModel;
 import za.co.edutrack.model.StudentQueryModel;
 import za.co.edutrack.model.SubjectQueryModel;
+import za.co.edutrack.repository.GradeRepository;
 import za.co.edutrack.repository.MarkRepository;
+import za.co.edutrack.repository.SchoolRepository;
 import za.co.edutrack.repository.StudentRepository;
 import za.co.edutrack.repository.SubjectRepository;
 
@@ -46,6 +55,12 @@ public class Service
     @Autowired
     private SubjectRepository subjectRepository;
     
+    @Autowired
+    private GradeRepository gradeRepository;
+     
+    @Autowired
+    private SchoolRepository schoolRepository;
+    
 
     @RequestMapping(value = "api/student", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
         public List<StudentQueryModel> findAllStudents(){
@@ -53,6 +68,14 @@ public class Service
             List<Student> students = studentRepository.findAll();
             log.info("found all stutudents - size:{}", students.size());
             return toStudentQueryModel(students);
+        }
+        
+        @RequestMapping(value = "api/grades", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+        public List<GradeQueryModel> findAllGrades(){
+            log.info("find all grades");
+            List<Grade> grade = gradeRepository.findAll();
+            log.info("found all grades - size:{}", grade.size());
+            return toGradeQueryModels(grade);
         }
     
     	@RequestMapping(value = "api/mark", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -79,5 +102,13 @@ public class Service
             Mark mark = markRepository.findOne(id);
             
             return toMarkQueryModel(mark);
+        }
+        
+        @RequestMapping(value = "api/school", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+        public List<SchoolQueryModel> findAllSchools(){
+            log.info("Getting all schools...");
+            List<School> school = schoolRepository.findAll();
+            log.info("Found all school - size ", school.size());
+            return toSchoolQueryModel(school);
         }
 }

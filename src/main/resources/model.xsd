@@ -1,41 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema  xmlns="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://eduTrack.co.za/model"
-	    xmlns:tns="http://eduTrack.co.za/model"
-           elementFormDefault="qualified">
+         targetNamespace="http://eduTrack.co.za/model"
+         xmlns:tns="http://eduTrack.co.za/model"
+         elementFormDefault="qualified">
 
     
-        <element name="SubjectQueryModel" type="tns:SubjectQueryModel" />
-	<complexType name="SubjectQueryModel">
-		<sequence>
-				<element name="id" type="long"></element>
-				<element name="subjectName" type="string"></element>
-			</sequence>
+    <element name="SubjectQueryModel" type="tns:SubjectQueryModel" />
+    <complexType name="SubjectQueryModel">
+        <sequence>
+            <element name="id" type="long"></element>
+            <element name="subjectName" type="string"></element>
+        </sequence>
+    </complexType>
 
+    <element name="MarkQueryModel">
+        <complexType>
+            <sequence>
+                <element name="id" type="long"></element>
+                <element name="mark" type="double"></element>
+                <element name="subject" minOccurs="0" maxOccurs="1"
+                         type="tns:SubjectQueryModel" />
+            </sequence>
         </complexType>
-
-	<element name="MarkQueryModel">
-		<complexType>
-			<sequence>
-				<element name="id" type="long"></element>
-				<element name="mark" type="double"></element>
-                                <element name="subject" minOccurs="0" maxOccurs="1"
-				type="tns:SubjectQueryModel" />
-			</sequence>
-		</complexType>
-	</element>
+    </element>
         
-        <element name="StudentQueryModel">
-            <complexType>
-                <sequence>
-                    <element name="student_id" type="long"></element>
-                    <element name="firstname" type="string"></element>
-                    <element name="lastname" type="string"></element>
-                    <element name="username" type="string"></element>
-                    <element name="password" type="string"></element>
-                    <element name="cellphone" type="long"></element>
-                </sequence>
-            </complexType>
-        </element>
+    <element name="StudentQueryModel">
+        <complexType>
+            <sequence>
+                <element name="student_id" type="long"></element>
+                <element name="firstname" type="string"></element>
+                <element name="surname" type="string"></element>
+                <element name="dob" type="string"></element>
+                <element name="gender" type="string"></element>
+                <element name="zip" type="long"></element>
+                <element name="citizenship" type="string"></element>
+                 <element name="id_number" type="float"></element>
+                <element name="username" type="string"></element>
+                <element name="password" type="string"></element>
+                <element name="cellphone" type="long"></element>
+            </sequence>
+        </complexType>
+    </element>
+    
+    <element name="GradeQueryModel">
+        <complexType>
+            <sequence>
+                <element name="grade_id" type="long"></element>
+                <element name="grade_year" type="long"></element>
+                <element name="grade" type="long"></element>
+                <element name="student_id" type="long"></element>
+            </sequence>
+        </complexType>
+    </element>
+    
+    <element name="SchoolQueryModel">
+        <complexType>
+            <sequence>
+                <element name="school_id" type="long"></element>
+                <element name="emis_number" type="long"></element>
+                <element name="school_name" type="string"></element>
+                <element name="province" type="string"></element>
+                <element name="district" type="string"></element>
+                <element name="region" type="string"></element>
+            </sequence>
+        </complexType>
+    </element>
 
 </schema>

@@ -29,8 +29,23 @@ public class Student {
     @Column(name = "firstname")
     private String firstname;
     
-    @Column(name = "lastname")
-    private String lastname;
+    @Column(name = "surname")
+    private String surname;
+    
+     @Column(name = "dob")
+    private String dob;
+    
+    @Column(name = "gender")
+    private String gender;
+    
+    @Column(name = "zip")
+    private Integer zip;
+    
+    @Column(name = "citizenship")
+    private String citizenship;
+    
+    @Column(name = "id_number")
+    private Float id_number;
     
     @Column(name = "username")
     private String username;
@@ -39,7 +54,7 @@ public class Student {
     private String password;
     
     @Column(name = "cellphone")
-    private Long cellphone;
+    private Integer cellphone;
 
     public Long getId() {
         return id;
@@ -57,12 +72,52 @@ public class Student {
         this.firstname = firstname;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Integer getZip() {
+        return zip;
+    }
+
+    public void setZip(Integer zip) {
+        this.zip = zip;
+    }
+
+    public String getCitizenship() {
+        return citizenship;
+    }
+
+    public void setCitizenship(String citizenship) {
+        this.citizenship = citizenship;
+    }
+
+    public Float getId_number() {
+        return id_number;
+    }
+
+    public void setId_number(Float id_number) {
+        this.id_number = id_number;
     }
 
     public String getUsername() {
@@ -81,14 +136,13 @@ public class Student {
         this.password = password;
     }
 
-    public Long getCellphone() {
+    public Integer getCellphone() {
         return cellphone;
     }
 
-    public void setCellphone(Long cellphone) {
+    public void setCellphone(Integer cellphone) {
         this.cellphone = cellphone;
     }
 
-   
     
 }

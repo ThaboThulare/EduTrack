@@ -8,12 +8,10 @@
  * Created: Feb 12, 2018
  */
 
-
-
 ---example 
 create table subject (
     id integer auto_increment not null primary key,
-    subject_name varchar(32) not null
+    subject_name varchar(32) not null,
 );
 
 create table mark(
@@ -26,10 +24,16 @@ create table mark(
 create table student( 
          student_id integer auto_increment not null primary key, 
 	 firstname varchar(45) not null,   
-	 lastname varchar(45) not null, 
-	 username varchar(45) not null, 
-         password varchar(45) not null, 
-         cellphone integer(10)
+	 surname varchar(45) not null, 
+         dob date not null,
+         gender varchar(45) not null,
+         zip integer not null,
+         citizenship varchar(45) not null,
+         id_number BigInt(13) not null,
+--      Not Compulsary
+	 username varchar(45), 
+         password varchar(45), 
+         cellphone integer(10)       
 );
 
 create table grade( 
@@ -38,4 +42,13 @@ create table grade(
 	grade varchar(45) not null,
         student_id integer not null,
         constraint grade_id_fk foreign key(student_id) references student(student_id) 
+);
+
+create table school( 
+        school_id integer auto_increment not null primary key, 
+        emis_number integer not null,
+	school_name varchar(45) not null, 
+	province varchar(45) not null,
+        district varchar(45) not null,
+        region varchar(45) not null
 );
