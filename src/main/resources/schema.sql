@@ -23,6 +23,7 @@ create table mark(
 
 create table student( 
          student_id integer auto_increment not null primary key, 
+        mark_id integer not null,
 	 firstname varchar(45) not null,   
 	 surname varchar(45) not null, 
          dob date not null,
@@ -33,7 +34,8 @@ create table student(
 --      Not Compulsary
 	 username varchar(45), 
          password varchar(45), 
-         cellphone integer(10)       
+         cellphone integer(10),
+         constraint student_id_fk foreign key( mark_id) references mark (id)
 );
 
 create table grade( 

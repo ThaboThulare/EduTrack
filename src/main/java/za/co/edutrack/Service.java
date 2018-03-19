@@ -70,6 +70,13 @@ public class Service
             return toStudentQueryModel(students);
         }
         
+        @RequestMapping(value = "api/student/{id}", method = RequestMethod.GET , produces = MediaType.APPLICATION_JSON_VALUE)
+        public StudentQueryModel findStudentById(@PathVariable("id") Long id)
+        {
+            Student student = studentRepository.findOne(id);
+            return toStudentQueryModel(student);
+        }
+        
         @RequestMapping(value = "api/grades", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
         public List<GradeQueryModel> findAllGrades(){
             log.info("find all grades");

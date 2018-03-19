@@ -13,8 +13,8 @@
         </sequence>
     </complexType>
 
-    <element name="MarkQueryModel">
-        <complexType>
+    <element name="MarkQueryModel" type="tns:MarkQueryModel" />
+        <complexType name="MarkQueryModel">
             <sequence>
                 <element name="id" type="long"></element>
                 <element name="mark" type="double"></element>
@@ -22,7 +22,6 @@
                          type="tns:SubjectQueryModel" />
             </sequence>
         </complexType>
-    </element>
         
     <element name="StudentQueryModel">
         <complexType>
@@ -38,6 +37,8 @@
                 <element name="username" type="string"></element>
                 <element name="password" type="string"></element>
                 <element name="cellphone" type="long"></element>
+                <element name="mark" minOccurs="0" maxOccurs="1"
+                         type="tns:MarkQueryModel" />
             </sequence>
         </complexType>
     </element>

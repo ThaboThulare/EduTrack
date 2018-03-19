@@ -46,6 +46,9 @@ public class Mapper {
         student.setUsername(from.getUsername());
         student.setPassword(from.getPassword());
         student.setCellphone(from.getCellphone());
+        
+        MarkQueryModel markQueryModel = toMarkQueryModel(from.getMark());
+        student.setMark(markQueryModel);
 
         return student;
     }

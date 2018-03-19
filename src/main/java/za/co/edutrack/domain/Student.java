@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -25,6 +27,10 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "student_id")
     private Long id;
+    
+    @ManyToOne
+    @JoinColumn(name = "mark_id")
+    Mark mark;
     
     @Column(name = "firstname")
     private String firstname;
@@ -55,6 +61,14 @@ public class Student {
     
     @Column(name = "cellphone")
     private Integer cellphone;
+
+    public Mark getMark() {
+        return mark;
+    }
+
+    public void setMark(Mark mark) {
+        this.mark = mark;
+    }
 
     public Long getId() {
         return id;

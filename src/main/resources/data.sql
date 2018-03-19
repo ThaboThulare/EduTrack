@@ -11,11 +11,12 @@
 insert into subject (subject_name) values('Maths');
 insert into subject (subject_name) values('English');
 
-insert into mark (subject_id,marks)  values(1, 58.7);
-insert into mark (subject_id,marks)  values(1, 78.7);
-insert into mark (subject_id,marks)  values(2, 48.7);
+insert into mark (id,subject_id,marks) values(1, 1, 89);
+insert into mark (id,subject_id,marks) values(2, 1, 78.7);
+insert into mark (id,subject_id,marks) values(3, 2, 48.7);
 
-insert into student (student_id, firstname, surname, dob, gender, zip, citizenship, id_number, username, password, cellphone) values(1, 'Glen', 'Mogane', '1995-09-10', 'Male', 1502, 'South African', 9509106101083, 'Tswalano', 'mogane@42', 0617262421);
+insert into student (mark_id, firstname, surname, dob, gender, zip, citizenship, id_number, username, password, cellphone) values(1, 'Glen', 'Mogane', '1995-09-10', 'Male', 1502, 'South African', 9509106101083, 'Tswalano', 'mogane@42', 0617262421);
+insert into student (mark_id, firstname, surname, dob, gender, zip, citizenship, id_number, username, password, cellphone) values(2, 'John', 'Doe', '1998-04-22', 'Male', 1501, 'South African', 98042201083, 'Johnny Dee', 'johndoe@42', 0836183698);
 
 insert into grade (grade_id,grade_year,grade,student_id) values(1, 2010, 5, 1);
 insert into grade (grade_id,grade_year,grade,student_id) values(2, 2011, 6, 1);
